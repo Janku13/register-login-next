@@ -7,11 +7,11 @@ import axios from 'axios'
 
 const   createSessionSchema = object({
 
-    email: string({
-      required_error:'email is required'
+    email: string().nonempty({
+      message:'email is required'
     }),
-    password: string({
-      required_error:'password is required'
+    password: string().nonempty({
+      message:'password is required'
     })
   })
 
@@ -30,7 +30,7 @@ function LoginPage() {
   
   const submit = async (values:CreateSessionInput) => {
     try {
-      await axios.post(`${process.env.NEXT_PUBLIC_SERVER_ENDPOINT}/api/sessions`, values)
+      await axios.post(`${process.env.NEXT_PUBLIC_SERVER_ENDPOINT}/api/sessions`, values,{withCredentials:true})
       router.push('/')
     } catch (e:any) {
       setCallError(e.message)

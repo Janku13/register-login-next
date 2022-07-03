@@ -56,7 +56,7 @@ function RegisterPage() {
           <input
           id="name"
             type="text"
-            placeholder="Jane Doe"
+            placeholder="Type Name"
             {...register("name")}
           />
           {errors.name && <p>{ errors.name.message}</p>}
@@ -68,7 +68,7 @@ function RegisterPage() {
       </div>
       <div className='form-element'>
         <label htmlFor="passwordConfirmation">Confirme Password</label>
-        <input id="passwordConfirmation" type="password" placeholder="Type passwordConfirmation" {...register('passwordConfirmation')} />
+        <input id="passwordConfirmation" type="password" placeholder="Type password confirmation" {...register('passwordConfirmation')} />
          {errors.passwordConfirmation && <p>{ errors.passwordConfirmation.message}</p>}
       </div>
       
